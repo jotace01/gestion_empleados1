@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>poliformismo</title>
+  </head>
+  <body>
+    <script>
+      // Clase base para todos los empleados
+      class Empleado {
+        constructor(nombre, salarioBase) {
+          this.nombre = nombre;
+          this.salarioBase = salarioBase;
+        }
+
+        calcularSalario() {
+          return this.salarioBase;
+        }
+      }
+
+      //   // Clase para gerentes
+      class Gerente extends Empleado {
+        constructor(nombre, salarioBase, bono, acciones) {
+          super(nombre, salarioBase);
+          this.bono = bono;
+          this.acciones = acciones;
+        }
+
+        calcularSalario() {
+          // El gerente reciben su salario base más un bono y un pago por acciones
+          return this.salarioBase + this.bono + this.acciones;
+        }
+      }
+
+      // Clase para empleados administrativos
+      class Administrativo extends Empleado {
+        constructor(nombre, salarioBase, bono) {
+          super(nombre, salarioBase);
+          this.bono = bono;
+        }
+
+        calcularSalario() {
+          // Los empleados administrativos reciben su salario base más un bono adicional
+          return this.salarioBase + this.bono;
+        }
+      }
+
+      // Clase para empleados regulares
+      class EmpleadoRegular extends Empleado {
+        constructor(nombre, salarioBase) {
+          super(nombre, salarioBase);
+        }
+
+        calcularSalario() {
+          // Los Empleados regulares reciben solo su salario base
+          return this.salarioBase;
+        }
+      }
+
+      // Función para calcular el salario total de un empleado
+      function calcularSalarioTotal(empleado) {
+        return empleado.calcularSalario();
+      }
+
+      // Ejemplos de empleados
+      const gerente = new Gerente("juan", 4000000, 1500000, 2000000);
+      const administrativo = new Administrativo("maria", 1300000, 1100000);
+      const empleadoRegular = new EmpleadoRegular("cindy", 1200000);
+
+      // Calcular y mostrar el salario total de cada empleado
+      console.log(
+        "Salario total de " +
+          gerente.nombre +
+          ": $" +
+          calcularSalarioTotal(gerente)
+      );
+      console.log(
+        "Salario total de " +
+          administrativo.nombre +
+          ": $" +
+          calcularSalarioTotal(administrativo)
+      );
+      console.log(
+        "Salario total de " +
+          empleadoRegular.nombre +
+          ": $" +
+          empleadoRegular.calcularSalario()
+      );
+    </script>
+  </body>
+</html>
