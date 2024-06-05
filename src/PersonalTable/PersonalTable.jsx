@@ -14,6 +14,7 @@ export const PersonalTable = ({ items, onEdit, onDelete }) => {
   return (
     <>
       <h5>Detalle De Empleados</h5>
+      <br />
 
       <table className="table table-hover">
         <thead>

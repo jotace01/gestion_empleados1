@@ -109,10 +109,8 @@ export const PersonalForm = () => {
       <h4>
         Sistema <br />
         Gestion Empleados{" "}
-        <button onClick={handleClick} type="button" className="btn btn-primary">
-          Guardar
-        </button>
       </h4>
+      <br />
       <form id="formularioPersonal">
         <label className="form-group"> Nombre: </label>
         <input
@@ -151,6 +149,7 @@ export const PersonalForm = () => {
           onChange={(event) => setApellido(event.target.value)}
           required
         />
+        <br />
 
         <label className="form-label"> Cargo:</label>
         <select
@@ -169,6 +168,7 @@ export const PersonalForm = () => {
           <option value="Administrativo">Administrativo</option>
           <option value="Ayudante De Bodega">Ayudante De Bodega</option>
         </select>
+        <br />
 
         <label className="form-group">Edad</label>
         <input
@@ -181,6 +181,10 @@ export const PersonalForm = () => {
           required
         />
       </form>
+      <br />
+      <button onClick={handleClick} type="button" className="btn btn-primary">
+        Guardar
+      </button>
     </>
   );
 };
